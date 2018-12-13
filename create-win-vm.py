@@ -16,11 +16,11 @@ import string
 # documentation provides ample information.
 # so lets generate a random string with 32 characters.
 #random = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(32)])
-def randomString(stringLength=10):
+def randomString(stringLength=6):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(stringLength))
 
-r = randomString()
+r = 'win2018-'+randomString()
 print(r)
 
 def randomNumber(stringLength=10):
@@ -38,7 +38,7 @@ headers = {
     'Content-Type': 'application/json',
 }
 
-data={"u_name":r,"u_serial_number":n,"u_asset_tag":a,"u_class":"cmdb_ci_linux_server","u_os":"Linux Red Hat","u_comments":"Via Jenkins Build","u_is_virtual":"true","u_model_id":"VMware Virtual Platform","u_device_classification":"General Purpose Server","u_device_type":"Virtual"}
+data={"u_name":r,"u_serial_number":n,"u_asset_tag":a,"u_class":"cmdb_ci_win_server","u_os":"Windows 2018 R2 Enterprise","u_comments":"Via Jenkins Build","u_is_virtual":"true","u_model_id":"VMware Virtual Platform","u_device_classification":"General Purpose Server","u_device_type":"Virtual"}
 
 response = requests.post('https://dev54376.service-now.com/api/now/import/u_td_cloud_test', headers=headers, json=data, auth=('ws.dps', 'abcd1234'))
 
